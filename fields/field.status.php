@@ -119,7 +119,7 @@ Class fieldStatus extends Field
 			foreach($results as $result)
 			{
 				$row = new XMLElement('tr');
-				$row->appendChild(new XMLElement('td', DateTimeObj::get('d F Y', $result['date'])));
+				$row->appendChild(new XMLElement('td', DateTimeObj::get('d F Y h:i:s', $result['date'])));
 				$row->appendChild(new XMLElement('td', $result['status']));
 				if($this->get('valid_until') == 'yes')
 				{
@@ -127,7 +127,7 @@ Class fieldStatus extends Field
 					{
 						$valid_until = '-';
 					} else {
-						$valid_until = DateTimeObj::get('d F Y', $result['valid_until']);
+						$valid_until = DateTimeObj::get('d F Y h:i:s', $result['valid_until']);
 					}
 					$row->appendChild(new XMLElement('td', $valid_until));
 				}
@@ -137,7 +137,7 @@ Class fieldStatus extends Field
 		
 		// Show the footer (option to set new status):
 		$row = new XMLElement('tr', null, array('class'=>'footer'));
-		$row->appendChild(new XMLElement('td', DateTimeObj::get('d F Y'), array('class' => 'inactive')));
+		$row->appendChild(new XMLElement('td', DateTimeObj::get('d F Y h:i:s'), array('class' => 'inactive')));
 		$td = new XMLElement('td', null);
 		if($this->get('valid_until') == 'yes')
 		{
@@ -154,7 +154,7 @@ Class fieldStatus extends Field
 			$row->appendChild(new XMLElement('td', __('Valid Until')));
 			$td = new XMLElement('td', null, array('colspan'=>2));
 			$fieldname = 'fields['.$this->get('element_name').'-until]';
-			$td->appendChild(Widget::Input($fieldname, DateTimeObj::get('d F Y', strtotime('next year'))));
+			$td->appendChild(Widget::Input($fieldname, DateTimeObj::get('d F Y h:i:s', strtotime('next year'))));
 			$row->appendChild($td);
 			$table->appendChild($row);
 		}
