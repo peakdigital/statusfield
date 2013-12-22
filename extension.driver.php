@@ -57,9 +57,9 @@ Class extension_statusfield extends Extension
 			`id` int(11) unsigned NOT NULL auto_increment,
 			`field_id` int(11) unsigned NOT NULL,
 			`entry_id` int(11) unsigned NOT NULL,
-			`date` DATE,
+			`date` DATETIME,
 			`status` TEXT,
-			`valid_until` DATE,
+			`valid_until` DATETIME,
 			PRIMARY KEY  (`id`)
 		)");
 	}
