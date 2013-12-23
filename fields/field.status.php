@@ -86,7 +86,7 @@ Class fieldStatus extends Field
 	function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL, $entry_id=NULL){
 		// Get the toggle states:
 		$states = $this->getToggleStates();
-		natsort($states);
+	//	natsort($states);
 		if(!is_array($data['value'])) $data['value'] = array($data['value']);
 		
 		$options = array();
